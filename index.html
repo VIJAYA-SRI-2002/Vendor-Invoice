@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Entry Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 1200px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-sizing: border-box; /* Ensures padding is included in max-width */
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .table-container {
+      overflow-x: auto; /* Allows horizontal scrolling if table overflows */
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1200px; /* Ensures table is at least as wide as the body, but can grow */
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border: 1px solid #ccc;
+      /* Enable text overflow handling */
+      white-space: nowrap; /* Prevents text from wrapping */
+      overflow: hidden; /* Hides overflowed text */
+      text-overflow: ellipsis; /* Adds ellipsis (...) for truncated text */
+    }
+
+    /* Specific width for the Project Name column (3rd column: Serial Number, Employee ID, Project Name) */
+    th:nth-child(3), td:nth-child(3) {
+      width: 200px; /* Set a fixed width to ensure Project Name is fully visible */
+      min-width: 200px; /* Ensure the column doesn't shrink below this width */
+    }
+
+    /* Add hover effect to show full content in a tooltip */
+    td {
+      position: relative; /* Required for potential custom tooltip styling (not used here) */
+    }
+
+    /* Use the title attribute for default browser tooltip on hover */
+    td:hover {
+      cursor: pointer; /* Optional: Indicates the cell is interactive */
+    }
+
+    th {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Prevents inputs from overflowing */
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: normal;
+    }
+
+    select[multiple] {
+      height: 120px;
+    }
+
+    .submit-button {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .submit-button button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Project Entry Form</h1>
+  <form id="projectForm">
+    <div class="table-container">
+      <table id="projectTable">
+        <thead>
+          <tr>
+            <th>Serial Number</th>
+            <th>Employee ID</th>
+            <th>Project Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Years of Experience</th>
+            <th>Date</th>
+            <th>Available/Not Available</th>
+            <th>Profession</th>
+            <th>Automation Tool</th>
+            <th>Can Be Utilized in Other Project</th>
+            <th>Continent</th>
+            <th>Selenium Commands</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td title="1">1</td>
+            <td title=""><input type="text" name="employeeId1" value=""></td>
+            <td title="AI Automation Project"><input type="text" name="projectName" value="AI Automation Project" readonly></td>
+            <td title=""><input type="text" name="firstName1" value=""></td>
+            <td title=""><input type="text" name="lastName1" value=""></td>
+            <td title="Gender: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="gender1" value="Male"> Male</label>
+                <label><input type="radio" name="gender1" value="Female"> Female</label>
+              </div>
+            </td>
+            <td title="Years of Experience: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="experience1" value="1"> 1</label>
+                <label><input type="radio" name="experience1" value="2"> 2</label>
+                <label><input type="radio" name="experience1" value="5"> 5</label>
+                <label><input type="radio" name="experience1" value="7"> 7</label>
+              </div>
+            </td>
+            <td title="2025-05-11"><input type="date" name="date1" value="2025-05-11" required></td>
+            <td title="Availability: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="available1" value="Available"> Available</label>
+                <label><input type="radio" name="available1" value="Not Available"> Not Available</label>
+              </div>
+            </td>
+            <td title="Profession: Automation Tester">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="profession1" value="Automation Tester" checked disabled> Automation Tester</label>
+                <label><input type="checkbox" name="profession1" value="Manual Tester" disabled> Manual Tester</label>
+                <label><input type="checkbox" name="profession1" value="Developer" disabled> Developer</label>
+              </div>
+            </td>
+            <td title="Automation Tool: Selenium Webdriver">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="tool1" value="Selenium Webdriver" checked disabled> Selenium Webdriver</label>
+                <label><input type="checkbox" name="tool1" value="UFT" disabled> UFT</label>
+                <label><input type="checkbox" name="tool1" value="Selenium IDE" disabled> Selenium IDE</label>
+              </div>
+            </td>
+            <td title="Can Be Utilized in Other Project: None selected">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="otherProjects1" value="Project 2"> Project 2</label>
+                <label><input type="checkbox" name="otherProjects1" value="Project 3"> Project 3</label>
+                <label><input type="checkbox" name="otherProjects1" value="Project 4"> Project 4</label>
+              </div>
+            </td>
+            <td title="Asia">
+              <select name="continent1" required>
+                <option value="Asia" selected>Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Australia">Australia</option>
+                <option value="Africa">Africa</option>
+              </select>
+            </td>
+            <td title="Selenium Commands: Browser Commands, Navigation Commands">
+              <select name="seleniumCommands1" multiple>
+                <option value="Browser Commands" selected>Browser Commands</option>
+                <option value="Navigation Commands" selected>Navigation Commands</option>
+                <option value="Switch Commands">Switch Commands</option>
+                <option value="Wait Commands">Wait Commands</option>
+                <option value="WebElement Commands">WebElement Commands</option>
+              </select>
+            </td>
+          </tr>
+
+          <!-- Row 2 -->
+          <tr>
+            <td title="2">2</td>
+            <td title=""><input type="text" name="employeeId2" value=""></td>
+            <td title="Manual Testing Project"><input type="text" name="projectName2" value="Manual Testing Project" readonly></td>
+            <td title=""><input type="text" name="firstName2" value=""></td>
+            <td title=""><input type="text" name="lastName2" value=""></td>
+            <td title="Gender: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="gender2" value="Male"> Male</label>
+                <label><input type="radio" name="gender2" value="Female"> Female</label>
+              </div>
+            </td>
+            <td title="Years of Experience: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="experience2" value="1"> 1</label>
+                <label><input type="radio" name="experience2" value="2"> 2</label>
+                <label><input type="radio" name="experience2" value="5"> 5</label>
+                <label><input type="radio" name="experience2" value="7"> 7</label>
+              </div>
+            </td>
+            <td title="2025-06-15"><input type="date" name="date2" value="2025-06-15"></td>
+            <td title="Availability: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="available2" value="Available"> Available</label>
+                <label><input type="radio" name="available2" value="Not Available"> Not Available</label>
+              </div>
+            </td>
+            <td title="Profession: Manual Tester">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="profession2" value="Manual Tester" checked disabled> Manual Tester</label>
+                <label><input type="checkbox" name="profession2" value="Automation Tester" disabled> Automation Tester</label>
+                <label><input type="checkbox" name="profession2" value="Developer" disabled> Developer</label>
+              </div>
+            </td>
+            <td title="Automation Tool: UFT">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="tool2" value="Selenium Webdriver" disabled> Selenium Webdriver</label>
+                <label><input type="checkbox" name="tool2" value="UFT" checked disabled> UFT</label>
+                <label><input type="checkbox" name="tool2" value="Selenium IDE" disabled> Selenium IDE</label>
+              </div>
+            </td>
+            <td title="Can Be Utilized in Other Project: None selected">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="otherProjects2" value="Project 3"> Project 3</label>
+                <label><input type="checkbox" name="otherProjects2" value="Project 4"> Project 4</label>
+              </div>
+            </td>
+            <td title="Asia">
+              <select name="continent2" required>
+                <option value="Asia" selected>Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Australia">Australia</option>
+                <option value="Africa">Africa</option>
+              </select>
+            </td>
+            <td title="Selenium Commands: Switch Commands, Wait Commands">
+              <select name="seleniumCommands2" multiple>
+                <option value="Browser Commands">Browser Commands</option>
+                <option value="Navigation Commands">Navigation Commands</option>
+                <option value="Switch Commands" selected>Switch Commands</option>
+                <option value="Wait Commands" selected>Wait Commands</option>
+                <option value="WebElement Commands">WebElement Commands</option>
+              </select>
+            </td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <td title="3">3</td>
+            <td title=""><input type="text" name="employeeId3" value=""></td>
+            <td title="Hybrid Testing Project"><input type="text" name="projectName3" value="Hybrid Testing Project" readonly></td>
+            <td title=""><input type="text" name="firstName3" value=""></td>
+            <td title=""><input type="text" name="lastName3" value=""></td>
+            <td title="Gender: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="gender3" value="Male"> Male</label>
+                <label><input type="radio" name="gender3" value="Female"> Female</label>
+              </div>
+            </td>
+            <td title="Years of Experience: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="experience3" value="1"> 1</label>
+                <label><input type="radio" name="experience3" value="2"> 2</label>
+                <label><input type="radio" name="experience3" value="5"> 5</label>
+                <label><input type="radio" name="experience3" value="7"> 7</label>
+              </div>
+            </td>
+            <td title="2025-07-20"><input type="date" name="date3" value="2025-07-20"></td>
+            <td title="Availability: None selected">
+              <div class="radio-group">
+                <label><input type="radio" name="available3" value="Available"> Available</label>
+                <label><input type="radio" name="available3" value="Not Available"> Not Available</label>
+              </div>
+            </td>
+            <td title="Profession: Manual Tester">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="profession3" value="Automation Tester" disabled> Automation Tester</label>
+                <label><input type="checkbox" name="profession3" value="Manual Tester" checked disabled> Manual Tester</label>
+                <label><input type="checkbox" name="profession3" value="Developer" disabled> Developer</label>
+              </div>
+            </td>
+            <td title="Automation Tool: Selenium IDE">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="tool3" value="Selenium Webdriver" disabled> Selenium Webdriver</label>
+                <label><input type="checkbox" name="tool3" value="UFT" disabled> UFT</label>
+                <label><input type="checkbox" name="tool3" value="Selenium IDE" checked disabled> Selenium IDE</label>
+              </div>
+            </td>
+            <td title="Can Be Utilized in Other Project: None selected">
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="otherProjects3" value="Project 2"> Project 2</label>
+                <label><input type="checkbox" name="otherProjects3" value="Project 3"> Project 3</label>
+                <label><input type="checkbox" name="otherProjects3" value="Project 4"> Project 4</label>
+              </div>
+            </td>
+            <td title="Europe">
+              <select name="continent3" required>
+                <option value="Asia">Asia</option>
+                <option value="Europe" selected>Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Australia">Australia</option>
+                <option value="Africa">Africa</option>
+              </select>
+            </td>
+            <td title="Selenium Commands: Navigation Commands, Wait Commands">
+              <select name="seleniumCommands3" multiple>
+                <option value="Browser Commands">Browser Commands</option>
+                <option value="Navigation Commands" selected>Navigation Commands</option>
+                <option value="Switch Commands">Switch Commands</option>
+                <option value="Wait Commands" selected>Wait Commands</option>
+                <option value="WebElement Commands">WebElement Commands</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="submit-button">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+</html>
